@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema Financeiro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2e2e2e, #b85c5c);
+      font-family: Arial, sans-serif;
+      transition: background 0.5s ease;
+    }
+
+    .card-login {
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      background-color: #3a3a3a;
+      color: #ffffff;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control {
+      background-color: #4a4a4a;
+      color: #ffffff;
+      border: 1px solid #b85c5c;
+      transition: all 0.3s ease;
+    }
+
+    .form-control::placeholder {
+      color: #ccc;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 8px #ff7b7b;
+      border-color: #ff7b7b;
+    }
+
+    .btn-login {
+      background-color: #ff7b7b;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background-color: #ff4c4c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+    }
+
+    .text-error {
+      color: #ff9999;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .text-error.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .google-btn {
+      background-color: #ffffff;
+      color: #555555;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .google-btn:hover {
+      background-color: #f5f5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .logo-login {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo-login img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    a {
+      color: #ff7b7b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff4c4c;
+    }
+
+    .position-relative i {
+      color: #ff7b7b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card card-login shadow">
+        <div class="logo-login">
+          <img src="logo.png" alt="Logo da Empresa">
+        </div>
+
+        <div id="errorMsg" class="text-error">Login inválido</div>
+
+        <form id="loginForm">
+          <div class="mb-3 position-relative">
+            <label>Email</label>
+            <input type="email" id="email" class="form-control" placeholder="exemplo@email.com" required>
+            <i class="bi bi-envelope position-absolute" style="right:10px; top:38px;"></i>
+          </div>
+          <div class="mb-3 position-relative">
+            <label>Senha</label>
+            <input type="password" id="senha" class="form-control" placeholder="********" required>
+            <i class="bi bi-lock position-absolute" style="right:10px; top:38px;"></i>
+          </div>
+
+          <div class="d-flex justify-content-end mb-3">
+            <a href="#" id="recuperarSenha">Recuperar Senha</a>
+          </div>
+
+          <button type="submit" class="btn btn-login w-100 mb-2">Entrar</button>
+
+          <div class="social-btn">
+            <button type="button" class="btn google-btn w-100" id="googleLogin">
+              <i class="bi bi-google"></i> Entrar com Google
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    if(localStorage.getItem('logado') === 'true') {
+        window.location.href = 'pages/dashboard.html';
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const errorMsg = document.getElementById("errorMsg");
+
+        if(email === "admin@gmail.com" && senha === "1234"){
+            localStorage.setItem("logado", "true");
+            window.location.href = "pages/dashboard.html";
+        } else {
+            errorMsg.classList.add('show');
+            setTimeout(()=> errorMsg.classList.remove('show'), 3000);
+        }
+    });
+
+    document.getElementById('recuperarSenha').addEventListener('click', function(e){
+        e.preventDefault();
+        alert('Funcionalidade de recuperação de senha ainda não implementada.');
+    });
+
+    document.getElementById('googleLogin').addEventListener('click', function(){
+        alert('Funcionalidade de login com Google ainda não implementada.');
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
