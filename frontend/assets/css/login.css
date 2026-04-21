@@ -1,0 +1,111 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2e2e2e, #b85c5c);
+  font-family: Arial, sans-serif;
+  transition: background 0.5s ease;
+}
+
+.card-login {
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background-color: #3a3a3a;
+  color: #ffffff;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.form-control {
+  background-color: #4a4a4a;
+  color: #ffffff;
+  border: 1px solid #b85c5c;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: #ccc;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 8px #ff7b7b;
+  border-color: #ff7b7b;
+}
+
+.btn-login {
+  background-color: #ff7b7b;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #ff4c4c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+}
+
+.text-error {
+  color: #ff9999;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.text-error.show {
+  display: block;
+  opacity: 1;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.google-btn {
+  background-color: #ffffff;
+  color: #555555;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.logo-login {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo-login img {
+  max-width: 150px;
+  height: auto;
+}
+
+a {
+  color: #ff7b7b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff4c4c;
+}
+
+.icon-input {
+  right: 10px;
+  top: 38px;
+  color: #ff7b7b;
+}
